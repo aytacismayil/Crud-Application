@@ -5,6 +5,7 @@ import About from './components/pages/About';
 import Contact from './components/pages/Contact';
 import NotFound from './components/pages/NotFound';
 import Navbar from './components/layout/Navbar';
+import AddUser from './components/users/AddUser';
 import './App.css';
 
 const App = (props) => {
@@ -16,6 +17,7 @@ const App = (props) => {
           <Route path="/" exact element={<Home />} />
           <Route path="/about" exact element={<About />} />
           <Route path="/contact" exact element={<Contact />} />
+          <Route path="/users/add" exact element={<AddUser />} />
           <Route path="*"  element={<NotFound />} />
         </Routes>
       </div>
