@@ -46,7 +46,7 @@ const Home = () => {
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>
-                  <Link className="btn btn-primary m-2" to="/">
+                  <Link className="btn btn-primary m-2" to={`/users/${user.id}`}>
                     View
                   </Link>
                   <Link
