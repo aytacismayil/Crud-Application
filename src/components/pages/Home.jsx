@@ -41,7 +41,7 @@ const Home = () => {
                 <td>{user.email}</td>
                 <td>
                   <Link className="btn btn-primary m-2" to="/">View</Link>
-                  <Link className="btn btn-outline-primary " to="/users/edit">Edit</Link>
+                  <Link className="btn btn-outline-primary " to={`/users/edit/${user.id}`}>Edit</Link>
                   <Link className="btn btn-danger m-2" to="/">Delete</Link>
                 </td>
               </tr>

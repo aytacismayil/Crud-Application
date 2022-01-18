@@ -16,9 +16,9 @@ const AddUser = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = async(e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:3002/users" , user);
+    await axios.post("http://localhost:3002/users", user);
     navigate("/");
   };
   console.log(user);

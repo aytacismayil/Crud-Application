@@ -20,7 +20,7 @@ const App = (props) => {
           <Route path="/about" exact element={<About />} />
           <Route path="/contact" exact element={<Contact />} />
           <Route path="/users/add" exact element={<AddUser />} />
-          <Route path="/users/edit" exact element={<EditUser />} />
+          <Route path="/users/edit/:id" exact element={<EditUser />} />
           <Route path="*"  element={<NotFound />} />
         </Routes>
       </div>
