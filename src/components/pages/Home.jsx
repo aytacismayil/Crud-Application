@@ -13,9 +13,15 @@ const Home = () => {
   const loadUsers = async () => {
     const result = await axios.get("http://localhost:3002/users");
     console.log(result);
-    setUsers(result.data);
+    setUsers(result.data.reverse());
     setLoading(false);
   };
+
+  const deleteUser = async (id) => {
+    await axios.delete(`http://localhost:3002/users/${id}`);
+    loadUsers();
+  };
+
   return loading ? (
     <div className="loader">Loading...</div>
   ) : (
@@ -40,9 +46,22 @@ const Home = () => {
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>
-                  <Link className="btn btn-primary m-2" to="/">View</Link>
-                  <Link className="btn btn-outline-primary " to={`/users/edit/${user.id}`}>Edit</Link>
-                  <Link className="btn btn-danger m-2" to="/">Delete</Link>
+                  <Link className="btn btn-primary m-2" to="/">
+                    View
+                  </Link>
+                  <Link
+                    className="btn btn-outline-primary "
+                    to={`/users/edit/${user.id}`}
+                  >
+                    Edit
+                  </Link>
+                  <Link
+                    className="btn btn-danger m-2"
+                    to="/"
+                    onClick={() => deleteUser(user.id)}
+                  >
+                    Delete
+                  </Link>
                 </td>
               </tr>
             );
