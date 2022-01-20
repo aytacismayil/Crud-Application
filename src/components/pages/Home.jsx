@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Search from '../layout/Search'
 
 const Home = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchText, setSearch] = useState("");
 
   useEffect(() => {
     loadUsers();
-  }, []);
+  }, [searchText]);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:3002/users");
+    const result = await axios.get(`http://localhost:3002/users?name=${searchText}`);
     console.log(result);
     setUsers(result.data.reverse());
     setLoading(false);
@@ -27,6 +29,11 @@ const Home = () => {
   ) : (
     <div className="container mt-4">
       <h1 className="mb-3">Home Page</h1>
+      <Search
+        getSearch={(parametr) => {
+          setSearch(parametr);
+        }}
+      />
       <table className="table border shadow">
         <thead>
           <tr>
