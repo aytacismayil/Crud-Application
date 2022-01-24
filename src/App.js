@@ -10,6 +10,7 @@ import EditUser from "./components/users/EditUser";
 import User from "./components/users/User";
 import Login from "./components/pages/Login";
 import "./App.css";
+import Register from "./components/pages/Register";
 
 const App = (props) => {
   return (
@@ -24,6 +25,7 @@ const App = (props) => {
           <Route path="/users/edit/:id" exact element={<EditUser />} />
           <Route path="/users/:id" exact element={<User />} />
           <Route path="/login" exact element={<Login />} />
+          <Route path="/register" exact element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

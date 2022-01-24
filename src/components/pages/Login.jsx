@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const login = async () => {
-    let item = { email, password };
+    let item = { username, password };
     let result = await fetch(
       "https://custom-dj-rest-auth.herokuapp.com/dj-rest-auth/login/",
       {
@@ -35,10 +35,10 @@ const Login = () => {
       <div className="col-sm-6 offset-sm-3">
         <input
           type="text"
-          placeholder="email"
+          placeholder="Username"
           className="form-control"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
         />
         <br />
         <input

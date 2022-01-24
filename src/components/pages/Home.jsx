@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Search from '../layout/Search'
+import Search from "../layout/Search";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
@@ -13,7 +13,7 @@ const Home = () => {
   }, [searchText]);
 
   const loadUsers = async () => {
-    const result = await axios.get(`http://localhost:3002/users?name=${searchText}`);
+    const result = await axios.get(`http://localhost:3002/users`);
     console.log(result);
     setUsers(result.data.reverse());
     setLoading(false);
@@ -29,11 +29,12 @@ const Home = () => {
   ) : (
     <div className="container mt-4">
       <h1 className="mb-3">Home Page</h1>
-      <Search
+      {/* <Search
         getSearch={(parametr) => {
           setSearch(parametr);
         }}
-      />
+      /> */}
+     
       <table className="table border shadow">
         <thead>
           <tr>
@@ -53,7 +54,10 @@ const Home = () => {
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>
-                  <Link className="btn btn-primary m-2" to={`/users/${user.id}`}>
+                  <Link
+                    className="btn btn-primary m-2"
+                    to={`/users/${user.id}`}
+                  >
                     View
                   </Link>
                   <Link
